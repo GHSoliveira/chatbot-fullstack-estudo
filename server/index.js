@@ -43,7 +43,6 @@ const loadData = () => {
 
 let db = loadData();
 
-// Seed Admin (ID com underscore, token usará ponto)
 if (db.users.length === 0) {
     db.users.push({
         id: "u_admin",
@@ -64,7 +63,6 @@ const createLog = (type, message) => {
     saveData();
 };
 
-// Controle de usuários online (heartbeat)
 const onlineUsers = {};
 
 // --- 3. MIDDLEWARES ---
@@ -72,7 +70,7 @@ const authenticate = (req, res, next) => {
     const token = req.headers['authorization'];
     if (!token) return res.status(401).json({ error: "Token ausente" });
     try {
-        const userId = token.split('.')[1]; // Separa por PONTO
+        const userId = token.split('.')[1]; 
         const user = db.users.find(u => u.id === userId);
         if (!user) return res.status(401).json({ error: "Sessão inválida" });
         req.user = user;
@@ -92,7 +90,7 @@ app.post('/api/auth/login', (req, res) => {
     const { username, password } = req.body;
     const user = db.users.find(u => u.username === username && u.password === password);
     if (user) {
-        const token = `tk.${user.id}.${Date.now()}`; // Token com PONTO
+        const token = `tk.${user.id}.${Date.now()}`;
         const { password: _, ...safeUser } = user;
         createLog('LOGIN', `${user.name} logou.`);
         res.json({ user: safeUser, token });
@@ -131,7 +129,7 @@ app.post('/api/chats/transfer', (req, res) => {
     if (idx !== -1) {
         db.activeChats[idx].agentId = req.body.agentId;
         db.activeChats[idx].queue = req.body.queue;
-        db.activeChats[idx].status = 'waiting'; // Vai para fila de espera
+        db.activeChats[idx].status = 'waiting'; 
         saveData(); res.json(db.activeChats[idx]);
     } else res.status(404).send();
 });
