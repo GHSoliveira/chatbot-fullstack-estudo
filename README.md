@@ -10,6 +10,10 @@ Uma plataforma completa de **orquestração de chatbots** com interface visual d
 
 ![Dashboard Preview](docs/screenshots/dashboard-preview.png)
 
+![Flow Preview](docs/screenshots/flow-edit-preview.png)
+
+
+
 ## ✨ Funcionalidades Principais
 
 ### 🤖 Editor Visual de Fluxos
