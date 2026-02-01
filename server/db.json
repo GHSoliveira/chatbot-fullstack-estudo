@@ -1,9 +1,205 @@
 {
-  "flows": [],
+  "flows": [
+    {
+      "id": "1769914628102",
+      "name": "fluxo-root-demo",
+      "draft": {
+        "nodes": [
+          {
+            "id": "startNode_1769914768503",
+            "type": "startNode",
+            "position": {
+              "x": -53.98730517314641,
+              "y": 83.32915500118986
+            },
+            "data": {
+              "text": "",
+              "variableName": "",
+              "value": "",
+              "anchorName": "Flag",
+              "targetAnchorId": "",
+              "script": "",
+              "url": "",
+              "templateId": "",
+              "delay": 2,
+              "queueName": "",
+              "scheduleId": "",
+              "conditions": [],
+              "mappings": []
+            }
+          },
+          {
+            "id": "messageNode_1769914771460",
+            "type": "messageNode",
+            "position": {
+              "x": 289.92207420291754,
+              "y": 69.75402834850559
+            },
+            "data": {
+              "text": "boa tarde",
+              "variableName": "",
+              "value": "",
+              "anchorName": "Flag",
+              "targetAnchorId": "",
+              "script": "",
+              "url": "",
+              "templateId": "",
+              "delay": 2,
+              "queueName": "",
+              "scheduleId": "",
+              "conditions": [],
+              "mappings": []
+            }
+          },
+          {
+            "id": "finalNode_1769914784704",
+            "type": "finalNode",
+            "position": {
+              "x": 544.8563147333662,
+              "y": 89.51665338802744
+            },
+            "data": {
+              "text": "",
+              "variableName": "",
+              "value": "",
+              "anchorName": "Flag",
+              "targetAnchorId": "",
+              "script": "",
+              "url": "",
+              "templateId": "",
+              "delay": 2,
+              "queueName": "",
+              "scheduleId": "",
+              "conditions": [],
+              "mappings": []
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "startNode_1769914768503",
+            "sourceHandle": null,
+            "target": "messageNode_1769914771460",
+            "targetHandle": null,
+            "id": "reactflow__edge-startNode_1769914768503-messageNode_1769914771460"
+          },
+          {
+            "source": "messageNode_1769914771460",
+            "sourceHandle": null,
+            "target": "finalNode_1769914784704",
+            "targetHandle": null,
+            "id": "reactflow__edge-messageNode_1769914771460-finalNode_1769914784704"
+          }
+        ]
+      },
+      "published": {
+        "nodes": [
+          {
+            "id": "startNode_1769914768503",
+            "type": "startNode",
+            "position": {
+              "x": -53.98730517314641,
+              "y": 83.32915500118986
+            },
+            "data": {
+              "text": "",
+              "variableName": "",
+              "value": "",
+              "anchorName": "Flag",
+              "targetAnchorId": "",
+              "script": "",
+              "url": "",
+              "templateId": "",
+              "delay": 2,
+              "queueName": "",
+              "scheduleId": "",
+              "conditions": [],
+              "mappings": []
+            }
+          },
+          {
+            "id": "messageNode_1769914771460",
+            "type": "messageNode",
+            "position": {
+              "x": 289.92207420291754,
+              "y": 69.75402834850559
+            },
+            "data": {
+              "text": "boa tarde",
+              "variableName": "",
+              "value": "",
+              "anchorName": "Flag",
+              "targetAnchorId": "",
+              "script": "",
+              "url": "",
+              "templateId": "",
+              "delay": 2,
+              "queueName": "",
+              "scheduleId": "",
+              "conditions": [],
+              "mappings": []
+            }
+          },
+          {
+            "id": "finalNode_1769914784704",
+            "type": "finalNode",
+            "position": {
+              "x": 544.8563147333662,
+              "y": 89.51665338802744
+            },
+            "data": {
+              "text": "",
+              "variableName": "",
+              "value": "",
+              "anchorName": "Flag",
+              "targetAnchorId": "",
+              "script": "",
+              "url": "",
+              "templateId": "",
+              "delay": 2,
+              "queueName": "",
+              "scheduleId": "",
+              "conditions": [],
+              "mappings": []
+            }
+          }
+        ],
+        "edges": [
+          {
+            "source": "startNode_1769914768503",
+            "sourceHandle": null,
+            "target": "messageNode_1769914771460",
+            "targetHandle": null,
+            "id": "reactflow__edge-startNode_1769914768503-messageNode_1769914771460"
+          },
+          {
+            "source": "messageNode_1769914771460",
+            "sourceHandle": null,
+            "target": "finalNode_1769914784704",
+            "targetHandle": null,
+            "id": "reactflow__edge-messageNode_1769914771460-finalNode_1769914784704"
+          }
+        ]
+      }
+    }
+  ],
   "variables": [],
   "messageTemplates": [],
   "schedules": [],
-  "systemLogs": [],
+  "systemLogs": [
+    {
+      "id": "log_1769914790006",
+      "timestamp": "2026-02-01T02:59:50.006Z",
+      "type": "PUBLISH",
+      "message": "Fluxo fluxo-root-demo publicado."
+    },
+    {
+      "id": "log_1769914582536",
+      "timestamp": "2026-02-01T02:56:22.536Z",
+      "type": "LOGIN",
+      "message": "Admin Full logou."
+    }
+  ],
   "users": [
     {
       "id": "u_admin",
@@ -14,5 +210,27 @@
       "queues": []
     }
   ],
-  "activeChats": []
+  "activeChats": [
+    {
+      "id": "chat_1769914793344",
+      "customerCpf": "sim_1769914793342",
+      "status": "bot",
+      "messages": [
+        {
+          "sender": "bot",
+          "text": "boa tarde",
+          "buttons": null,
+          "timestamp": "2026-02-01T02:59:54.365Z"
+        },
+        {
+          "sender": "bot",
+          "text": "Atendimento finalizado.",
+          "buttons": null,
+          "timestamp": "2026-02-01T02:59:55.382Z"
+        }
+      ],
+      "variables": {},
+      "agentId": null
+    }
+  ]
 }

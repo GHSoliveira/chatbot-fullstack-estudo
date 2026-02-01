@@ -80,8 +80,6 @@ const FlowEditor = () => {
         } : node));
     }, []);
 
-    // --- 2. HIDRATAÇÃO (O Segredo para os nós funcionarem) ---
-    // Injeta funções e dados externos (vars, templates) nos nós estáticos do JSON
     const hydrateNode = useCallback((node, vData, tData, sData) => ({
         ...node,
         data: {
@@ -91,7 +89,6 @@ const FlowEditor = () => {
             availableSchedules: sData,
             onDelete: deleteNode,
             onAddCondition: addCondition,
-            // Mapeamento de updates
             onChange: (v) => updateNodeData(node.id, { text: v }),
             onTextChange: (v) => updateNodeData(node.id, { text: v }),
             onVarChange: (v) => updateNodeData(node.id, { variableName: v }),
@@ -159,15 +156,12 @@ const FlowEditor = () => {
     const onConnect = useCallback((params) => {
         const sourceNode = nodes.find(n => n.id === params.source);
 
-        // Regras de Conexão
-        if (sourceNode?.type === 'gotoNode') return; // GOTO não sai
+        if (sourceNode?.type === 'gotoNode') return;
 
-        // Validação de Saída Única (exceto Condição, Template e Horário)
         if (!['conditionNode', 'templateNode', 'scheduleNode'].includes(sourceNode?.type)) {
             const hasEdge = edges.some(e => e.source === params.source);
             if (hasEdge) return alert("Este nó permite apenas uma saída.");
         } else {
-            // Validação de Handle Ocupado
             const handleBusy = edges.some(e => e.source === params.source && e.sourceHandle === params.sourceHandle);
             if (handleBusy) return alert("Este caminho já está conectado.");
         }
@@ -187,7 +181,6 @@ const FlowEditor = () => {
                 conditions: [], mappings: []
             }
         };
-        // Hidrata imediatamente para ser editável
         setNodes((nds) => [...nds, hydrateNode(rawNode, vars, templates, schedules)]);
     };
 
@@ -196,7 +189,6 @@ const FlowEditor = () => {
             return;
         }
 
-        // Limpeza dos nós antes de salvar (remove funções)
         const cleanNodes = nodes.map(n => {
             const { availableVars, availableTemplates, availableSchedules, onDelete, onAddCondition, onAddMapping, onChange, onTextChange, onVarChange, onValueChange, onAnchorNameChange, onTargetChange, onScriptChange, onUrlChange, onTemplateChange, onDelayChange, onQueueChange, onScheduleChange, onMappingChange, ...dataToSave } = n.data;
             return {
@@ -233,7 +225,6 @@ const FlowEditor = () => {
                     </div>
                 )}
 
-                {/* TOOLBAR PROFISSIONAL */}
                 <div className="toolbar">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', borderRight: '1px solid #e2e8f0', paddingRight: '15px' }}>
                         <div style={{ width: '32px', height: '32px', background: '#f1f5f9', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -246,6 +237,7 @@ const FlowEditor = () => {
                     </div>
 
                     <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', flex: 1 }}>
+                        <button className='btn-tool' title="Mensagem" onClick={() => createNode('startNode')}><Play size={16} /> Start</button>
                         <button className='btn-tool' title="Mensagem" onClick={() => createNode('messageNode')}><MessageSquare size={16} /> Msg</button>
                         <button className='btn-tool' title="Input" onClick={() => createNode('inputNode')}><TextCursorInput size={16} /> Input</button>
                         <button className='btn-tool' title="Condição" onClick={() => createNode('conditionNode')}><Split size={16} /> If</button>
