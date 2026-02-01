@@ -4,7 +4,6 @@ import { apiRequest } from '../services/api';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    // Inicializa o estado lendo do localStorage (para não deslogar no F5)
     const [user, setUser] = useState(() => {
         const saved = localStorage.getItem('user');
         return saved ? JSON.parse(saved) : null;
@@ -21,11 +20,9 @@ export const AuthProvider = ({ children }) => {
         localStorage.clear();
     };
 
-    // HEARTBEAT: Pinga o servidor a cada 10s para dizer "Estou Online"
     useEffect(() => {
         if (user) {
             const beat = setInterval(() => {
-                // Envia o ping sem bloquear a interface
                 apiRequest('/auth/heartbeat', { method: 'POST' }).catch(() => { });
             }, 10000);
 

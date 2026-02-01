@@ -7,7 +7,6 @@ import {
     X, Flag, CheckCircle2, XCircle
 } from 'lucide-react';
 
-// --- COMPONENTE BASE PADRONIZADO ---
 const NodeContainer = ({ title, icon: Icon, color, children, onDelete, nodeId, selected }) => (
     <div style={{
         background: '#fff',
@@ -48,7 +47,6 @@ const NodeContainer = ({ title, icon: Icon, color, children, onDelete, nodeId, s
     </div>
 );
 
-// --- 1. INÍCIO ---
 export const StartNode = ({ id, data, selected }) => (
     <NodeContainer title="Início" icon={Play} color="#10b981" nodeId={id} selected={selected}>
         <div style={{ color: '#64748b' }}>Ponto de partida do fluxo.</div>
@@ -56,7 +54,6 @@ export const StartNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 2. FIM ---
 export const EndNode = ({ id, data, selected }) => (
     <NodeContainer title="Fim" icon={Square} color="#ef4444" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#ef4444', width: '10px', height: '10px' }} />
@@ -64,7 +61,6 @@ export const EndNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 3. FINALIZAÇÃO (PROTOCOLO) ---
 export const FinalNode = ({ id, data, selected }) => (
     <NodeContainer title="Finalizar Atendimento" icon={Flag} color="#0f172a" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#0f172a' }} />
@@ -72,7 +68,6 @@ export const FinalNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 4. MENSAGEM ---
 export const MessageNode = ({ id, data, selected }) => (
     <NodeContainer title="Enviar Mensagem" icon={MessageSquare} color="#3b82f6" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#3b82f6' }} />
@@ -88,7 +83,6 @@ export const MessageNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 5. INPUT ---
 export const InputNode = ({ id, data, selected }) => (
     <NodeContainer title="Solicitar Dados" icon={TextCursorInput} color="#f59e0b" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#f59e0b' }} />
@@ -117,7 +111,6 @@ export const InputNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 6. SET VALUE ---
 export const SetValueNode = ({ id, data, selected }) => (
     <NodeContainer title="Definir Variável" icon={Database} color="#059669" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#059669' }} />
@@ -144,7 +137,6 @@ export const SetValueNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 7. CONDIÇÃO ---
 export const ConditionNode = ({ id, data, selected }) => (
     <NodeContainer title="Condicional (IF)" icon={Split} color="#7c3aed" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#7c3aed' }} />
@@ -174,7 +166,6 @@ export const ConditionNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 8. ÂNCORA ---
 export const AnchorNode = ({ id, data, selected }) => (
     <NodeContainer title="Âncora (Flag)" icon={Anchor} color="#db2777" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#db2777' }} />
@@ -188,7 +179,6 @@ export const AnchorNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 9. GOTO ---
 export const GotoNode = ({ id, data, selected }) => {
     const allNodes = useNodes();
     const anchors = allNodes.filter(n => n.type === 'anchorNode');
@@ -210,7 +200,6 @@ export const GotoNode = ({ id, data, selected }) => {
     );
 };
 
-// --- 10. API HTTP ---
 export const HttpRequestNode = ({ id, data, selected }) => (
     <NodeContainer title="Requisição HTTP" icon={Globe} color="#0891b2" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#0891b2' }} />
@@ -240,7 +229,6 @@ export const HttpRequestNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 11. SCRIPT ---
 export const ScriptNode = ({ id, data, selected }) => (
     <NodeContainer title="Javascript" icon={Code} color="#475569" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#475569' }} />
@@ -255,7 +243,6 @@ export const ScriptNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 12. DELAY ---
 export const DelayNode = ({ id, data, selected }) => (
     <NodeContainer title="Aguardar" icon={Hourglass} color="#d97706" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#d97706' }} />
@@ -272,7 +259,6 @@ export const DelayNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 13. FILA ---
 const AVAILABLE_QUEUES = ["SUPORTE", "SAC", "COBRANÇA", "ALTERAÇÃO DE PLANO", "ATIVAÇÃO DE PLANO"];
 export const QueueNode = ({ id, data, selected }) => (
     <NodeContainer title="Transferir Fila" icon={Users} color="#ea580c" onDelete={data.onDelete} nodeId={id} selected={selected}>
@@ -289,7 +275,6 @@ export const QueueNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 14. HORÁRIO ---
 export const ScheduleNode = ({ id, data, selected }) => (
     <NodeContainer title="Horário" icon={Clock} color="#16a34a" onDelete={data.onDelete} nodeId={id} selected={selected}>
         <Handle type="target" position={Position.Left} style={{ background: '#16a34a' }} />
@@ -315,7 +300,6 @@ export const ScheduleNode = ({ id, data, selected }) => (
     </NodeContainer>
 );
 
-// --- 15. TEMPLATE ---
 export const TemplateNode = ({ id, data, selected }) => {
     const selectedTemplate = data.availableTemplates?.find(t => t.id === data.templateId);
     return (

@@ -6678,16 +6678,16 @@
       "queues": []
     },
     {
-      "id": "u_1768523161086",
-      "name": "Pedro Leonardo",
-      "username": "pedrol1234",
-      "password": "Pedro1234",
+      "id": "u_1769914336737",
+      "name": "user-root",
+      "username": "user-root",
+      "password": "user-root",
       "role": "AGENT",
       "queues": [
         "SUPORTE",
         "SAC",
-        "ALTERAÇÃO DE PLANO",
         "COBRANÇA",
+        "ALTERAÇÃO DE PLANO",
         "ATIVAÇÃO DE PLANO"
       ]
     }

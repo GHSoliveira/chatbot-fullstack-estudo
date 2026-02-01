@@ -193,10 +193,8 @@ const AgentManager = () => {
                         </form>
                     </div>
 
-                    {/* --- LISTA (COLUNA DIREITA) --- */}
                     <div className="table-container" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
 
-                        {/* Barra de Busca na Tabela */}
                         <div style={{ padding: '15px', borderBottom: '1px solid #e2e8f0', background: '#fff' }}>
                             <div style={{ position: 'relative' }}>
                                 <Search size={16} style={{ position: 'absolute', top: '10px', left: '10px', color: '#94a3b8' }} />
