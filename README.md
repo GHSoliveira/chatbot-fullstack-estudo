@@ -90,7 +90,7 @@ Uma plataforma completa de **orquestração de chatbots** com interface visual d
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/fiberadmin-chatbot.git
+git clone https://github.com/GHSoliveira/chatbot-fullstack-estudo.git
 cd fiberadmin-chatbot
 ```
 
